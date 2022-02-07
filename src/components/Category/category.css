@@ -1,0 +1,14 @@
+.category-meals {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+@media screen and (max-width: 768px) {
+  .category-meals {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}

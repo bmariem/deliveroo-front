@@ -1,0 +1,27 @@
+main {
+  background-color: #f3f5f5;
+}
+
+main .container {
+  margin: 0 auto;
+  width: 96vw;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+main .container .categories {
+  flex: 1 1;
+  margin-right: 30px;
+  margin-bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 768px) {
+  main .container .categories {
+    padding: 0 20px 20px;
+  }
+}
