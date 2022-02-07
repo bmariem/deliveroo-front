@@ -11,7 +11,7 @@ import "./App.css";
 import Logo from "./assets/img/Deliveroo_logo.png";
 
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
