@@ -8,7 +8,7 @@ import "./meal.css";
 
 const Meal = ({ meal }) => {
   return (
-    <div className="meal" key={meal.id}>
+    <div className="meal">
       <div className="meal-card">
         <div className="meal-infos">
           <h3 className="title">{meal.title}</h3>
