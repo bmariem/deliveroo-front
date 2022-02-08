@@ -5,6 +5,7 @@ import axios from "axios";
 // Components
 import Header from "./components/Header/Header";
 import Categories from "./components/Categories/Categories";
+import Spinner from "./components/Spinner/Spinner";
 
 // CSS
 import "./App.css";
@@ -31,7 +32,7 @@ function App() {
   }, []);
 
   return isLoading ? (
-    "En cours de chargement"
+    <Spinner />
   ) : (
     <div className="App">
       <Header Logo={Logo} restaurant={data.restaurant} />
