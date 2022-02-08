@@ -4,7 +4,7 @@ import React from "react";
 import StarIcon from "../StarIcon";
 
 // CSS
-import "./meal.css";
+import "./Meal.css";
 
 const Meal = ({ meal }) => {
   return (

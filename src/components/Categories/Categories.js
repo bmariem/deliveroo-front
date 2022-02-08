@@ -4,7 +4,7 @@ import React from "react";
 import Category from "../Category/Category";
 
 // CSS
-import "./categories.css";
+import "./Categories.css";
 
 const Categories = ({ categories }) => {
   return (

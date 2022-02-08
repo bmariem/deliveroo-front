@@ -4,7 +4,7 @@ import React from "react";
 import Meal from "../Meal/Meal";
 
 // CSS
-import "./category.css";
+import "./Category.css";
 
 const Category = ({ category }) => {
   return category.meals.length > 0 ? (
