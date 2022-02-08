@@ -1,0 +1,59 @@
+.orders {
+  border-bottom: 1px solid #d1d7d7;
+  margin: 0 10px;
+  overflow: auto;
+}
+
+.order-line {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.3rem 0;
+  width: 100%;
+}
+
+.order-line .counter {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: #808484;
+  max-width: 80px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .order-line .counter {
+    margin: 0;
+  }
+}
+
+.order-line .counter .add,
+.order-line .counter .remove {
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #00cdbd;
+  color: #00cdbd;
+  margin: 0 5px;
+  width: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  height: 25px;
+  padding: 0px;
+  line-height: 22px;
+}
+
+.order-infos {
+  display: flex;
+  flex-grow: 2;
+  margin: 0;
+}
+
+.order-infos .title {
+  flex: 1 1;
+  color: #808484;
+}
+
+.order-infos .price {
+  width: 85px;
+  text-align: right;
+  color: #808484;
+}

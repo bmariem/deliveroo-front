@@ -6,9 +6,9 @@ import StarIcon from "../StarIcon";
 // CSS
 import "./Meal.css";
 
-const Meal = ({ meal }) => {
+const Meal = ({ meal, addMeal }) => {
   return (
-    <div className="meal">
+    <div className="meal" onClick={() => addMeal(meal)}>
       <div className="meal-card">
         <div className="meal-infos">
           <h3 className="title">{meal.title}</h3>

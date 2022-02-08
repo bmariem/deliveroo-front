@@ -16,7 +16,7 @@
   border-radius: 5px;
   height: 160px;
   background: #fff;
-  padding: 15px;
+  padding: 15px 20px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -47,11 +47,9 @@
 .meal-infos .description {
   font-size: 0.9rem;
   color: #808484;
-  line-height: 1.3rem;
-  height: 2.6rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -63,6 +61,7 @@
 .meal-infos .more-infos {
   display: flex;
   align-items: center;
+  margin: 0;
 }
 
 .meal-infos .more-infos .price {

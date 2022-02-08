@@ -1,3 +1,22 @@
 * {
   box-sizing: border-box;
 }
+
+.App {
+  background-color: #f3f5f5;
+}
+
+.App .wrapper {
+  margin: 0 auto;
+  width: 96vw;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .App .wrapper {
+    width: 100%;
+  }
+}

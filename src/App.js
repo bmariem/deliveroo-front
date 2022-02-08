@@ -4,8 +4,9 @@ import axios from "axios";
 
 // Components
 import Header from "./components/Header/Header";
-import Categories from "./components/Categories/Categories";
 import Spinner from "./components/Spinner/Spinner";
+import Categories from "./components/Categories/Categories";
+import BasketMenu from "./components/BasketMenu/BasketMenu";
 
 // CSS
 import "./App.css";
@@ -14,6 +15,68 @@ import Logo from "./assets/img/Deliveroo_logo.png";
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [basket, setBasket] = useState([]);
+
+  const handleAddMealClick = (meal) => {
+    const updatedBasket = [...basket];
+
+    // Verifier si l'ordre est deja dans updatedBasket
+    const existingOrder = updatedBasket.filter((element) => {
+      return element.id === meal.id;
+    });
+    if (existingOrder.length > 0) {
+      const mealInBasket = existingOrder[0];
+      mealInBasket.quantity += 1;
+
+      calculateSubtotal(updatedBasket);
+      setBasket(updatedBasket);
+    } else {
+      const mealInBasket = {};
+      mealInBasket.id = meal.id;
+      mealInBasket.title = meal.title;
+      mealInBasket.price = meal.price;
+      mealInBasket.quantity = 1;
+      updatedBasket.push(mealInBasket);
+
+      calculateSubtotal(updatedBasket);
+      setBasket(updatedBasket);
+    }
+  };
+
+  const handleRemoveOrderClick = (order) => {
+    const updatedBasket = [...basket];
+
+    if (order.quantity <= 0) {
+      order.quantity = 0;
+      setBasket(updatedBasket);
+    } else {
+      order.quantity--;
+      calculateSubtotal(updatedBasket);
+      setBasket(updatedBasket);
+    }
+  };
+
+  const handleAddOrderClick = (order) => {
+    const updatedBasket = [...basket];
+    order.quantity++;
+    calculateSubtotal(updatedBasket);
+    setBasket(updatedBasket);
+  };
+
+  const deliveryCosts = 2.5;
+
+  const sum = (previousValue, currentValue) => previousValue + currentValue;
+
+  const calculateSubtotal = (basket) => {
+    const updatedBasket = [...basket];
+    let subtotal = updatedBasket
+      .map((order) => {
+        return Number(order.price) * Number(order.quantity);
+      })
+      .reduce(sum);
+    console.log(subtotal);
+    return subtotal;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +100,17 @@ function App() {
     <div className="App">
       <Header Logo={Logo} restaurant={data.restaurant} />
 
-      <Categories categories={data.categories} />
+      <div className="wrapper">
+        <Categories categories={data.categories} addMeal={handleAddMealClick} />
+
+        <BasketMenu
+          basket={basket}
+          addOrder={handleAddOrderClick}
+          removeOrder={handleRemoveOrderClick}
+          subTotal={calculateSubtotal}
+          deliveryCosts={deliveryCosts}
+        />
+      </div>
     </div>
   );
 }
