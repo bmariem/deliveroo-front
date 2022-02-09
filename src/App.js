@@ -25,22 +25,14 @@ function App() {
       return element.id === meal.id;
     });
     if (existingOrder.length > 0) {
-      const mealInBasket = existingOrder[0];
-      mealInBasket.quantity += 1;
-
-      calculateSubtotal(updatedBasket);
-      setBasket(updatedBasket);
+      existingOrder[0].quantity += 1;
     } else {
-      const mealInBasket = {};
-      mealInBasket.id = meal.id;
-      mealInBasket.title = meal.title;
-      mealInBasket.price = meal.price;
-      mealInBasket.quantity = 1;
-      updatedBasket.push(mealInBasket);
-
-      calculateSubtotal(updatedBasket);
-      setBasket(updatedBasket);
+      meal.quantity = 1;
+      updatedBasket.push(meal);
     }
+
+    calculateSubtotal(updatedBasket);
+    setBasket(updatedBasket);
   };
 
   const handleRemoveOrderClick = (order) => {
@@ -48,12 +40,11 @@ function App() {
 
     if (order.quantity <= 0) {
       order.quantity = 0;
-      setBasket(updatedBasket);
     } else {
       order.quantity--;
       calculateSubtotal(updatedBasket);
-      setBasket(updatedBasket);
     }
+    setBasket(updatedBasket);
   };
 
   const handleAddOrderClick = (order) => {

@@ -36,7 +36,7 @@ const Basket = ({ basket, addOrder, removeOrder, subTotal, deliveryCosts }) => {
             <div className="results">
               <p>
                 <span className="title">Sous total </span>
-                <span className="amount">{subTotal(basket)} €</span>
+                <span className="amount">{subTotal(basket).toFixed(2)} €</span>
               </p>
               <p>
                 <span className="title">Frais de livraison</span>
@@ -46,7 +46,8 @@ const Basket = ({ basket, addOrder, removeOrder, subTotal, deliveryCosts }) => {
             <p className="total">
               <span className="title">Total</span>
               <span className="amount">
-                {Number(subTotal(basket) + Number(deliveryCosts))} €
+                {(Number(subTotal(basket)) + Number(deliveryCosts)).toFixed(2)}{" "}
+                €
               </span>
             </p>
           </>
